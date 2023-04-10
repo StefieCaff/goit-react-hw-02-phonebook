@@ -11,6 +11,7 @@
 //     );
 // };
 
+
 // const Component2 = (props) => {
 
 //     const {
@@ -22,11 +23,10 @@
 //     );
 // };
 
-
-// Component.propTypes = {
+// Component2.propTypes = {
 //     prop: PropTypes.value.isRequired,
 // }
 
-// Component2.propTypes = {
+// Component.propTypes = {
 //     prop: PropTypes.value.isRequired,
 // }
