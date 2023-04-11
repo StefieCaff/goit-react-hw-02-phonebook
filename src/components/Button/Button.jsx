@@ -1,9 +1,9 @@
 // import PropTypes from 'prop-types'
 
-// const Component = (props) => {
+// const Button = (props) => {
 
 //     const {
-
+//         type
 //     } = props;
 
 //     return (

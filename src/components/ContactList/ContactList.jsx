@@ -1,32 +1,53 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
+import { SVG } from '../Icons/Icons.jsx'
 
-// const Component = (props) => {
+const ContactList = (props) => {
 
-//     const {
+    const {
+        contacts,
+        onRemove,
+        children
+    } = props;
 
-//     } = props;
+    return (
+        <div>
+            <h3>Contacts</h3>
+            <div>
+                {children}
+                <ul>
+                    {contacts.length === 0 ? null : (
+                        <>
+                            {contacts.map(contact => {
+                                return (
+                                    <li>
+                                        <p>
+                                            <span>{contact.name}</span>
+                                            <span>{contact.number}</span>
+                                        </p>
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                onRemove(contact.id);
+                                            }}>
+                                            <SVG
+                                                width="15"
+                                                height="15"
+                                                name="remove"
+                                            />
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </>
+                    )}
+                </ul>
+            </div>
+        </div>
+    );
+};
 
-//     return (
-
-//     );
-// };
-
-// const Component2 = (props) => {
-
-//     const {
-
-//     } = props;
-
-//     return (
-
-//     );
-// };
-
-
-// Component.propTypes = {
-//     prop: PropTypes.value.isRequired,
-// }
-
-// Component2.propTypes = {
-//     prop: PropTypes.value.isRequired,
-// }
+ContactList.propTypes = {
+    contacts: PropTypes.object.isRequired,
+    onRemove: PropTypes.func.isRequired,
+    children: PropTypes.node
+};
