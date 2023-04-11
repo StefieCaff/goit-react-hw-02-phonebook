@@ -10,25 +10,22 @@ export const ContactForm = (props) => {
         onAdd
     } = props;
 
-    const [newInput, setNewInput] = useState({ name: '', number: ''})
+    const [input, setInput] = useState({ name: '', number: ''})
     
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!newInput.name || !newInput.number) return;
-            onAdd(newInput)
-            setNewInput({
+        if (!input.name || !input.number) return;
+            onAdd(input)
+            setInput({
                 name: '',
                 number: ''
         })
     }
 
     const handleInput = (e) => {
-        const { newName, value } = e.target
-        setNewInput({
-            ...newInput,
-            [newName]: value
-        })
+        e.preventDefault();
+        setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
     };
 
     return (
@@ -55,8 +52,8 @@ export const ContactForm = (props) => {
                         placeholder="contact name"
                         required
                         autoFocus={true}
-                        onChange={(e) => handleInput(e)}
-                        value={newInput.name}              
+                        onChange={handleInput}
+                        value={input.name}              
                         />
                 </label>
                 <label id="tel">
@@ -67,8 +64,8 @@ export const ContactForm = (props) => {
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                         placeholder="contact phone"
-                        onChange={(e) => handleInput(e)}
-                        value={newInput.number}
+                        onChange={handleInput}
+                        value={input.number}
                     />
                 </label>
             </form>
