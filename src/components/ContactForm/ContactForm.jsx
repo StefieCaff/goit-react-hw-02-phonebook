@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import { useState } from "react"
-//import { nanoid } from 'nanoid'
 
 import { SVG } from '../Icons/Icons.jsx'
 
@@ -16,10 +15,11 @@ export const ContactForm = (props) => {
         e.preventDefault();
 
         if (!input.name || !input.number) return;
-            onAdd(input)
+            let id = "";
+            onAdd(id, input)
             setInput({
-                name: '',
-                number: ''
+                name: input.value,
+                number: input.value
         })
     }
 

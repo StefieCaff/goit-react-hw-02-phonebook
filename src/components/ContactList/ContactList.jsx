@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types'
-import { SVG } from '../Icons/Icons.jsx'
+import PropTypes from 'prop-types';
 
-const ContactList = (props) => {
+import { SVG } from '../Icons/Icons.jsx';
+
+export const ContactList = (props) => {
 
     const {
         contacts,
@@ -19,7 +20,7 @@ const ContactList = (props) => {
                         <>
                             {contacts.map(contact => {
                                 return (
-                                    <li>
+                                    <li key={contact.id}>
                                         <p>
                                             <span>{contact.name}</span>
                                             <span>{contact.number}</span>
@@ -46,8 +47,12 @@ const ContactList = (props) => {
     );
 };
 
+
 ContactList.propTypes = {
-    contacts: PropTypes.object.isRequired,
-    onRemove: PropTypes.func.isRequired,
-    children: PropTypes.node
+    contacts: PropTypes.array.isRequired,
+    onRemove: PropTypes.func
 };
+
+
+  
+    

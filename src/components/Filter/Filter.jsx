@@ -1,16 +1,16 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-// const Component = (props) => {
+const Filter = (props) => {
 
-//     const {
+    const {
 
-//     } = props;
+    } = props;
 
-//     return (
+    return (
 
-//     );
-// };
+    );
+};
 
-// Component.propTypes = {
-//     prop: PropTypes.value.isRequired,
-// }
+Filter.propTypes = {
+    prop: PropTypes.value.isRequired,
+}
