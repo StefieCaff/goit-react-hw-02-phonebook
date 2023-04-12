@@ -23,7 +23,8 @@ export const App = () => {
     let nameInputId = nanoid(6);
     setId(nameInputId);
     setContact(({ contacts }) => ({
-       contacts: contacts.push(contacts => contacts.value),
+      contacts: contacts.push(contacts => contacts.value),
+      id
     }))
   };
 
