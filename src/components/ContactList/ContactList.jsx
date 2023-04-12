@@ -16,8 +16,7 @@ export const ContactList = (props) => {
             <div>
                 {children}
                 <ul>
-                    {contacts.length === 0 ? null : (
-                        <>
+                         <>
                             {contacts.map(contact => {
                                 return (
                                     <li key={contact.id}>
@@ -40,7 +39,7 @@ export const ContactList = (props) => {
                                 );
                             })}
                         </>
-                    )}
+                    
                 </ul>
             </div>
         </div>

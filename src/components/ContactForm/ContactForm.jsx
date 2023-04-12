@@ -3,30 +3,41 @@ import { useState } from "react"
 
 import { SVG } from '../Icons/Icons.jsx'
 
-export const ContactForm = (props) => {
+export const ContactForm = ({onAdd}) => {
 
-    const {
-        onAdd
-    } = props;
+    // const {
+    //     onAdd
+    // } = props;
 
-    const [input, setInput] = useState({ name: '', number: ''})
-    
+    // const [input, setInput] = useState({ name: '', number: ''})
+    const [name, setName] = useState('');
+    const [number, setNumber]= useState('');
+
+
     const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (!input.name || !input.number) return;
-            let id = "";
-            onAdd(id, input)
-            setInput({
-                name: input.value,
-                number: input.value
-        })
+        e.preventDefault();  
+        onAdd({name, number})    
+        formReset();
     }
 
-    const handleInput = (e) => {
-        e.preventDefault();
-        setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
-    };
+const handleChangeName = e => {
+    setName(e.currentTarget.value);    
+  };
+
+  const handleChangeTel = e => {
+      setNumber(e.currentTarget.value);
+  };
+
+    // const handleInput = (e) => {
+    //     e.preventDefault();
+    //     setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    // };
+
+    const formReset = () => {
+        // setInput('');
+        setName('');
+        setNumber('')
+  };
 
     return (
         
@@ -34,7 +45,7 @@ export const ContactForm = (props) => {
             <h3>New contact</h3>
             <button
                 type="submit"
-                onClick={() => { }}
+                onClick={(e) => {handleSubmit(e)}}
             >
                 <SVG
                     width="20"
@@ -52,8 +63,8 @@ export const ContactForm = (props) => {
                         placeholder="contact name"
                         required
                         autoFocus={true}
-                        onChange={handleInput}
-                        value={input.name}              
+                        onChange={handleChangeName}
+                        value={name}              
                         />
                 </label>
                 <label id="tel">
@@ -64,8 +75,8 @@ export const ContactForm = (props) => {
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
                         placeholder="contact phone"
-                        onChange={handleInput}
-                        value={input.number}
+                        onChange={handleChangeTel}
+                        value={number}
                     />
                 </label>
             </form>

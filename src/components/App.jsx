@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from 'nanoid';
 
 import { ContactForm } from './ContactForm/ContactForm.jsx'
@@ -7,7 +7,7 @@ import { ContactList } from './ContactList/ContactList.jsx'
 
 export const App = () => {
 
-  const [contacts, setContact] = useState({
+  const [contacts, setContacts] = useState({
     contacts: [
       { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
       { id: 'id-2', name: 'Hermione Granger', number: '443-89-12' },
@@ -18,18 +18,24 @@ export const App = () => {
   });
 
   const [id, setId] = useState('');
+  useEffect(() => {
 
-  const handleAddContact = () => {
+  }, [contacts, id])
+
+
+  const handleAddContact = ({name, number}) => {
     let nameInputId = nanoid(6);
     setId(nameInputId);
-    setContact(({ contacts }) => ({
-      contacts: contacts.push(contacts => contacts.value),
-      id
-    }))
+    const newContact = {
+      id: { nameInputId },
+      name,
+      number
+    };
+    setContacts([ ...contacts.contacts, newContact,]);
   };
 
   const handleRemove = (id) => {
-    setContact(({ contacts }) => ({
+      setContacts(({ contacts }) => ({
        contacts: contacts.filter(contact => contact.id !== id),
     }));
   }
