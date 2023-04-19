@@ -7,39 +7,35 @@ export const ContactList = (props) => {
     const {
         contacts,
         onRemove,
-        children
+       
     } = props;
 
     return (
         <div>
             <h3>Contacts</h3>
             <div>
-                {children}
                 <ul>
-                         <>
-                            {contacts.map(contact => {
-                                return (
-                                    <li key={contact.id}>
-                                        <p>
-                                            <span>{contact.name}</span>
-                                            <span>{contact.number}</span>
-                                        </p>
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                onRemove(contact.id);
-                                            }}>
-                                            <SVG
-                                                width="15"
-                                                height="15"
-                                                name="remove"
-                                            />
-                                        </button>
-                                    </li>
-                                );
-                            })}
-                        </>
-                    
+                    {contacts.map(({ id, name, number }) => {
+                        return (
+                            <li key={id}>
+                                <p>
+                                    <span>{name}</span>
+                                    <span>{number}</span>
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        onRemove(id);
+                                    }}>
+                                    <SVG
+                                        width="15"
+                                        height="15"
+                                        name="remove"
+                                    />
+                                </button>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         </div>

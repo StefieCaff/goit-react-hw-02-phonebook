@@ -1,40 +1,30 @@
 import PropTypes from 'prop-types'
 import { useState } from "react"
+import { nanoid } from 'nanoid';
 
 import { SVG } from '../Icons/Icons.jsx'
 
 export const ContactForm = ({onAdd}) => {
-
-    // const {
-    //     onAdd
-    // } = props;
-
-    // const [input, setInput] = useState({ name: '', number: ''})
     const [name, setName] = useState('');
     const [number, setNumber]= useState('');
 
+    const handleChangeName = e => {
+        setName(e.target.value);    
+    };
 
+    const handleChangeTel = e => {
+        setNumber(e.target.value);
+    };
+     
     const handleSubmit = (e) => {
-        e.preventDefault();  
-        onAdd({name, number})    
+        e.preventDefault(); 
+        
+        const data = ({ id: nanoid(6), name: name, number: number });
+        onAdd(data)
         formReset();
     }
 
-const handleChangeName = e => {
-    setName(e.currentTarget.value);    
-  };
-
-  const handleChangeTel = e => {
-      setNumber(e.currentTarget.value);
-  };
-
-    // const handleInput = (e) => {
-    //     e.preventDefault();
-    //     setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
-    // };
-
     const formReset = () => {
-        // setInput('');
         setName('');
         setNumber('')
   };

@@ -1,16 +1,30 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-// const Filter = (props) => {
+const Filter = (props) => {
 
-//     const {
+    const {
+        value,
+        onFilter
+    } = props;
 
-//     } = props;
+    return (
+        <div>
+            <h3>Search contacts for { value }</h3>
+            <input
+                type="text"
+                value={value}
+                placeholder="search contacts"
+                onChange={onFilter}
+            
 
-//     return (
+            />
+        </div>
+    );
+};
 
-//     );
-// };
+Filter.propTypes = {
+    value: PropTypes.string.isRequired,
+    onFilter: PropTypes.func.isRequired
+}
 
-// Filter.propTypes = {
-//     prop: PropTypes.value.isRequired,
-// }
+export {Filter}
