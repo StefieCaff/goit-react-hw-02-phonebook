@@ -4,10 +4,12 @@ import { nanoid } from 'nanoid';
 
 import { SVG } from '../Icons/Icons.jsx'
 
-export const ContactForm = ({onAdd}) => {
+export const ContactForm = ({ onAdd }) => {
+//set states for form reset and to capture input values    
     const [name, setName] = useState('');
     const [number, setNumber]= useState('');
 
+// click event handlers input changes and for submit
     const handleChangeName = e => {
         setName(e.target.value);    
     };
@@ -24,6 +26,7 @@ export const ContactForm = ({onAdd}) => {
         formReset();
     }
 
+// helper function to reset form    
     const formReset = () => {
         setName('');
         setNumber('')

@@ -1,6 +1,5 @@
 
-import { useState, useEffect } from "react";
-import { nanoid } from 'nanoid';
+import { useState } from "react";
 import { useLocalStorage } from "./LocalStorage/local-storage.js";
 
 import { ContactForm } from './ContactForm/ContactForm.jsx'
@@ -8,19 +7,26 @@ import { ContactList } from './ContactList/ContactList.jsx'
 import { Filter } from './Filter/Filter.jsx'
 
 export const App = () => {
-
+// define states add local storage hook to save contacts to local environment
   const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
 
+// add a contact that is not a duplicate based on name normalized to lowercase  
   const handleAddContact = data => {
-    
-    setContacts([...contacts, data])
+    const normalizedContact = data.name.toLowerCase();
+    const normalizedList = contacts.map(({ name }) => name.toLowerCase());
+  
+  !normalizedList.contains(normalizedContact)  
+    ? setContacts([...contacts, data])
+    : alert(` eeep, ${data.name} is already a contact.`)
   };
 
+// get filter value  
   const handleFilterInput = (e) => {
     setFilter(e.target.value);
   };
 
+// normalize filter and look for matching name in contacts  
   const searchContact = () => {
     const normalizeFilter = filter.toLowerCase();
     return contacts.filter(contact =>
@@ -28,6 +34,7 @@ export const App = () => {
     );
   };
 
+// look through contacts by id and delete  
   const handleRemove = (id) => {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== id)
