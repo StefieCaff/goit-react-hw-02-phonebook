@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { SVG } from '../Icons/Icons.jsx';
+import { StyledButton } from 'components/Button/s-button.js';
 
 export const ContactList = (props) => {
 
@@ -22,17 +23,18 @@ export const ContactList = (props) => {
                                     <span>{name}</span>
                                     <span>{number}</span>
                                 </p>
-                                <button
+                                <StyledButton
                                     type="button"
                                     onClick={() => {
                                         onRemove(id);
-                                    }}>
+                                    }}
+                                >
                                     <SVG
-                                        width="15"
-                                        height="15"
+                                        width="20"
+                                        height="20"
                                         name="remove"
                                     />
-                                </button>
+                                </StyledButton>
                             </li>
                         );
                     })}

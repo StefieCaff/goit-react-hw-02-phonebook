@@ -1,32 +1,28 @@
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-// const Button = (props) => {
-
-//     const {
-//         type
-//     } = props;
-
-//     return (
-
-//     );
-// };
+import { StyledButton } from './s-button';
+import { SVG } from 'components/Icons/Icons';
 
 
-// const Component2 = (props) => {
+const Button = (props) => {
+    const {
+        type,
+        name
+}= props
+  
 
-//     const {
+    return (
+        
+        <Button
+        type={type}>
+            <SVG
+                width="15"
+                height="15"
+                name={name}
+            />
+        </Button>
 
-//     } = props;
+    );
+};
 
-//     return (
-
-//     );
-// };
-
-// Component2.propTypes = {
-//     prop: PropTypes.value.isRequired,
-// }
-
-// Component.propTypes = {
-//     prop: PropTypes.value.isRequired,
-// }
+export { Button }

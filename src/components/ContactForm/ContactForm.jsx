@@ -2,7 +2,8 @@ import PropTypes from 'prop-types'
 import { useState } from "react"
 import { nanoid } from 'nanoid';
 
-import { SVG } from '../Icons/Icons.jsx'
+import { SVG } from 'components/Icons/Icons'; 
+import { StyledButton } from 'components/Button/s-button.js';
 
 export const ContactForm = ({ onAdd }) => {
 //set states for form reset and to capture input values    
@@ -30,13 +31,14 @@ export const ContactForm = ({ onAdd }) => {
     const formReset = () => {
         setName('');
         setNumber('')
-  };
+    };
 
     return (
         
         <div>
             <h3>New contact</h3>
-            <button
+            <StyledButton
+                style={{padding:5}}
                 type="submit"
                 onClick={(e) => {handleSubmit(e)}}
             >
@@ -45,7 +47,7 @@ export const ContactForm = ({ onAdd }) => {
                     height="20"
                     name="add"
                 />
-            </button>
+            </StyledButton>
             <form onSubmit={handleSubmit}>
                 <label id="name">
                         <input

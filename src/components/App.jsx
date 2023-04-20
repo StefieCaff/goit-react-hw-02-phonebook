@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useLocalStorage } from "./LocalStorage/local-storage.js";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import { ContactForm } from './ContactForm/ContactForm.jsx'
 import { ContactList } from './ContactList/ContactList.jsx'
@@ -16,9 +17,9 @@ export const App = () => {
     const normalizedContact = data.name.toLowerCase();
     const normalizedList = contacts.map(({ name }) => name.toLowerCase());
   
-  !normalizedList.contains(normalizedContact)  
+  !normalizedList.includes(normalizedContact)  
     ? setContacts([...contacts, data])
-    : alert(` eeep, ${data.name} is already a contact.`)
+    : Notify.info(` Eeep, ${data.name} is already a contact.`)
   };
 
 // get filter value  
@@ -39,6 +40,7 @@ export const App = () => {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== id)
     )
+    Notify.success('Success! Contact deleted.')
   };
 
   return (
