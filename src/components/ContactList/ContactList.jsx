@@ -2,8 +2,18 @@ import PropTypes from 'prop-types';
 
 import { SVG } from '../Icons/Icons.jsx';
 import { StyledButton } from 'components/Button/s-button.js';
-import { StyledTitle, StyledFlexColumn } from 'components/styled-common.js';
-import { StyledListWrapper, StyledList, StyledItem, StyledInfo } from './s-contact-list.js';
+import {
+    StyledTitle,
+    StyledFlexColumn,
+    StyledFlex
+} from 'components/styled-common.js';
+import {
+    StyledListWrapper,
+    StyledList,
+    StyledItem,
+    StyledInfo,
+    StyledCallto
+} from './s-contact-list.js';
 
 
 export const ContactList = (props) => {
@@ -16,7 +26,9 @@ export const ContactList = (props) => {
 
     return (
         <StyledFlexColumn>
-            <StyledTitle>Contact List</StyledTitle>
+            <StyledFlex>
+                <StyledTitle>Contact List</StyledTitle>
+            </StyledFlex>
             <StyledListWrapper>
                 <StyledList>
                     {contacts.map(({ id, name, number }) => {
@@ -36,7 +48,7 @@ export const ContactList = (props) => {
                                 </StyledButton>
                                 <StyledInfo>
                                     <p>{name}</p>
-                                    <Callto phone={number}>{number}</Callto>
+                                    <StyledCallto phone={number}>{number}</StyledCallto>
                                 </StyledInfo>
                                 
                             </StyledItem>

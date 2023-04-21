@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid';
 import { SVG } from 'components/Icons/Icons'; 
 import { StyledButton } from 'components/Button/s-button.js';
 import { StyledForm, StyledInput } from './s-contact-form';
-import { StyledFlexColumn, StyledFlexContainer } from 'components/styled-common';
+import { StyledFlexColumn, StyledFlex } from 'components/styled-common';
 import { StyledTitle } from 'components/styled-common';
 
 
@@ -42,9 +42,22 @@ export const ContactForm = ({ onAdd }) => {
         
         <StyledFlexColumn>
             <StyledTitle>Add a contact</StyledTitle>
-            <StyledFlexContainer>
+            <StyledFlex>
             <StyledForm onSubmit={handleSubmit}>
-                <label id="name">
+                <StyledButton
+                    style={{padding:5}}
+                    type="submit"
+                    onClick={(e) => {handleSubmit(e)}}
+                >
+                    <SVG
+                        width="20"
+                        height="20"
+                        name="add"
+                    />
+                    </StyledButton>
+                    <StyledFlex> 
+                        <label id="name">
+                       
                     <StyledInput
                         type="text"
                         name="name"
@@ -55,7 +68,7 @@ export const ContactForm = ({ onAdd }) => {
                         autoFocus={true}
                         onChange={handleChangeName}
                         value={name} 
-                        maxLength="31"
+                        maxLength="30"
                         />
                 </label>
                 <label id="tel">
@@ -68,10 +81,11 @@ export const ContactForm = ({ onAdd }) => {
                         placeholder="contact phone"
                         onChange={handleChangeTel}
                         value={number}
-                        maxLength="31"
+                        maxLength="15"
                     />
-                </label>
-                <StyledButton
+                    </label>
+                </StyledFlex>
+                {/* <StyledButton
                     style={{padding:5}}
                     type="submit"
                     onClick={(e) => {handleSubmit(e)}}
@@ -81,9 +95,9 @@ export const ContactForm = ({ onAdd }) => {
                         height="20"
                         name="add"
                     />
-                 </StyledButton>
+                 </StyledButton> */}
                 </StyledForm>
-            </StyledFlexContainer>
+            </StyledFlex>
         </StyledFlexColumn>
     );
 };

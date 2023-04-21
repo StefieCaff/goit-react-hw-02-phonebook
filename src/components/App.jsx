@@ -8,7 +8,11 @@ import { ContactForm } from './ContactForm/ContactForm.jsx'
 import { ContactList } from './ContactList/ContactList.jsx'
 import { Filter } from './Filter/Filter.jsx'
 /* Styled Components*/
-import { StyledFlexContainer, StyledHeader } from "./styled-common.js";
+import {
+  StyledContainer,
+  StyledHeader,
+  StyledSection
+} from "./styled-common.js";
 
 export const App = () => {
 // define states add local storage hook to save contacts to local environment
@@ -48,18 +52,32 @@ export const App = () => {
 /*markup*/
   return (
     <>
-      <StyledFlexContainer>
-      <StyledHeader>Phone Book</StyledHeader>
-      <ContactForm onAdd={handleAddContact} />
+      <StyledContainer className='container'>
+        <StyledHeader>Phone Book</StyledHeader>
+      </StyledContainer>
+      <StyledSection>
+      <StyledContainer>
+      
+          <ContactForm onAdd={handleAddContact} />
+        </StyledContainer>
+      </StyledSection>
+      <StyledSection>
+        <StyledContainer>
       <Filter
         value={filter}
         onFilter ={handleFilterInput}
-      />
+          />
+        </StyledContainer>
+      </StyledSection>
+      <StyledSection>
+        <StyledContainer>
       <ContactList
         contacts={searchContact()}
         onRemove ={handleRemove}
         />
-      </StyledFlexContainer>
+        </StyledContainer>
+      </StyledSection>
+      
     </>
   );
 };

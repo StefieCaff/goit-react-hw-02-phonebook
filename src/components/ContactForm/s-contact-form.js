@@ -3,22 +3,21 @@ import styled from 'styled-components';
 const StyledForm = styled.form`
    display: flex;
    flex-direction: row;
-   align-items: center;
+    align-items: center;
 `;
 
 const StyledInput = styled.input`
-    padding: 0 50px 0 0;
     background-color: #e0e0d9c5;
     border-top: none;
     border-left: none;
     border-right: .1px solid #f8e396;
     border-bottom: .5px solid #f8e396 ;
-    margin: 0 5px;
+    margin: 0 10px 10px;
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 13px 15px 3px 10px;
     color: #54543dc5;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-
+    min-width: 180px;
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #54543dc5;

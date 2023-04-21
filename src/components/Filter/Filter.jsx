@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { StyledInput } from 'components/ContactForm/s-contact-form';
+import { StyledFilter } from './s-filter';
 import { StyledTitle } from 'components/styled-common';
 import { StyledFlexColumn } from 'components/styled-common';
 
@@ -14,7 +14,7 @@ const Filter = (props) => {
     return (
         <StyledFlexColumn>
             <StyledTitle>Search contacts { value }</StyledTitle>
-            <StyledInput
+            <StyledFilter
                 type="text"
                 value={value}
                 placeholder="search by name"

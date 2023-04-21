@@ -2,33 +2,57 @@ import styled from "styled-components";
 
 const StyledFlexColumn = styled.div`
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
     flex-direction: column;
     background-color: #fffefa;
-    padding: 20px;
-    margin: 0px 20px;
-    border-radius: 10px;
+    padding: 20px 0;
+    border-radius: 1px;
+    border: .5px solid #C5A120;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, 
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, 
+        rgba(0, 0, 0, 0.07) 0px 4px 8px, 
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, 
+        rgba(0, 0, 0, 0.07) 0px 16px 32px, 
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
 `;
 
 const StyledHeader = styled.h1`
-    font-family: 'Oxygen';
+    margin-top: 20px;
+    font-size: 24px;
 `;
 
-const StyledTitle = styled(StyledHeader)`
-  font-size: 16px;
-//   margin: 5px 0 0 10px;
+const StyledTitle = styled.h3`
+    font-size: 16px;
+    margin: 0px 10px 20px 10px;
+    border-bottom: 1px solid #C5A120;
 `;
 
 const StyledFlex = styled.div`
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    flex-direction: flex-start;
 `;
 
-const StyledFlexContainer = styled.div`
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
+const StyledContainer = styled.div`    
+    max-width: 280px;
+    width: 280px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    @media screen and (min-width:768px) {
+       max-width: 768px;
+    }
+
+    @media screen and (min-width: 1200px) {
+       max-width: 1200px;
+    }
+`;
+
+const StyledSection = styled.section`
+    padding-top: .5px;
+    padding-bottom: .5px;
+}
+
+
 `;
 
 export {
@@ -36,5 +60,6 @@ export {
     StyledHeader,
     StyledTitle,
     StyledFlex,
-    StyledFlexContainer
+    StyledContainer,
+    StyledSection
 } 
