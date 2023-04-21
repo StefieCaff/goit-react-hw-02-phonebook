@@ -2,8 +2,13 @@ import PropTypes from 'prop-types'
 import { useState } from "react"
 import { nanoid } from 'nanoid';
 
+/* styled components*/
 import { SVG } from 'components/Icons/Icons'; 
 import { StyledButton } from 'components/Button/s-button.js';
+import { StyledForm, StyledInput } from './s-contact-form';
+import { StyledFlexColumn, StyledFlexContainer } from 'components/styled-common';
+import { StyledTitle } from 'components/styled-common';
+
 
 export const ContactForm = ({ onAdd }) => {
 //set states for form reset and to capture input values    
@@ -35,22 +40,12 @@ export const ContactForm = ({ onAdd }) => {
 
     return (
         
-        <div>
-            <h3>New contact</h3>
-            <StyledButton
-                style={{padding:5}}
-                type="submit"
-                onClick={(e) => {handleSubmit(e)}}
-            >
-                <SVG
-                    width="20"
-                    height="20"
-                    name="add"
-                />
-            </StyledButton>
-            <form onSubmit={handleSubmit}>
+        <StyledFlexColumn>
+            <StyledTitle>Add a contact</StyledTitle>
+            <StyledFlexContainer>
+            <StyledForm onSubmit={handleSubmit}>
                 <label id="name">
-                        <input
+                    <StyledInput
                         type="text"
                         name="name"
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -59,11 +54,12 @@ export const ContactForm = ({ onAdd }) => {
                         required
                         autoFocus={true}
                         onChange={handleChangeName}
-                        value={name}              
+                        value={name} 
+                        maxLength="31"
                         />
                 </label>
                 <label id="tel">
-                    <input
+                    <StyledInput
                         type="tel"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -72,10 +68,23 @@ export const ContactForm = ({ onAdd }) => {
                         placeholder="contact phone"
                         onChange={handleChangeTel}
                         value={number}
+                        maxLength="31"
                     />
                 </label>
-            </form>
-        </div>
+                <StyledButton
+                    style={{padding:5}}
+                    type="submit"
+                    onClick={(e) => {handleSubmit(e)}}
+                >
+                    <SVG
+                        width="20"
+                        height="20"
+                        name="add"
+                    />
+                 </StyledButton>
+                </StyledForm>
+            </StyledFlexContainer>
+        </StyledFlexColumn>
     );
 };
 

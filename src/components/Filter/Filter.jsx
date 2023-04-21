@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types'
 
+import { StyledInput } from 'components/ContactForm/s-contact-form';
+import { StyledTitle } from 'components/styled-common';
+import { StyledFlexColumn } from 'components/styled-common';
+
 const Filter = (props) => {
 
     const {
@@ -8,17 +12,17 @@ const Filter = (props) => {
     } = props;
 
     return (
-        <div>
-            <h3>Search contacts for { value }</h3>
-            <input
+        <StyledFlexColumn>
+            <StyledTitle>Search contacts { value }</StyledTitle>
+            <StyledInput
                 type="text"
                 value={value}
-                placeholder="search contacts"
+                placeholder="search by name"
                 onChange={onFilter}
             
 
             />
-        </div>
+        </StyledFlexColumn>
     );
 };
 

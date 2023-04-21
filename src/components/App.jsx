@@ -3,9 +3,12 @@ import { useState } from "react";
 import { useLocalStorage } from "./LocalStorage/local-storage.js";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+
 import { ContactForm } from './ContactForm/ContactForm.jsx'
 import { ContactList } from './ContactList/ContactList.jsx'
 import { Filter } from './Filter/Filter.jsx'
+/* Styled Components*/
+import { StyledFlexContainer, StyledHeader } from "./styled-common.js";
 
 export const App = () => {
 // define states add local storage hook to save contacts to local environment
@@ -42,10 +45,11 @@ export const App = () => {
     )
     Notify.success('Success! Contact deleted.')
   };
-
+/*markup*/
   return (
     <>
-      <h1>Phone Book</h1>
+      <StyledFlexContainer>
+      <StyledHeader>Phone Book</StyledHeader>
       <ContactForm onAdd={handleAddContact} />
       <Filter
         value={filter}
@@ -54,7 +58,8 @@ export const App = () => {
       <ContactList
         contacts={searchContact()}
         onRemove ={handleRemove}
-      />
+        />
+      </StyledFlexContainer>
     </>
   );
 };
