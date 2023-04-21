@@ -18,7 +18,7 @@ background-color: #e0e0d9c5;
     align-items: center;
     max-width: 240px;
     margin: 0 10px 10px 10px;
-    padding: 10px 20px 5px 0;
+    padding: 10px 50px 5px 0;
     border-bottom: .1px solid #f8e396;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;

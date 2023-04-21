@@ -81,7 +81,7 @@ export const ContactForm = ({ onAdd }) => {
                         placeholder="contact phone"
                         onChange={handleChangeTel}
                         value={number}
-                        maxLength="15"
+                        maxLength="19"
                     />
                     </label>
                 </StyledFlex>
