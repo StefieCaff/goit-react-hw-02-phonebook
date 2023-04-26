@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix';
 
 /* styled components*/
 import { SVG } from 'components/Icons/Icons'; 
@@ -10,29 +11,33 @@ import { StyledFlexColumn, StyledFlex } from 'components/styled-common';
 import { StyledTitle } from 'components/styled-common';
 
 
-export const ContactForm = ({ onAdd }) => {
-//set states for form reset and to capture input values    
-    const [name, setName] = useState('');
-    const [number, setNumber]= useState('');
 
-// click event handlers input changes and for submit
+export const ContactForm = ({ onAdd }) => {
+    //set states for form reset and to capture input values    
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
+
+    // click event handlers input changes and for submit
     const handleChangeName = e => {
-        setName(e.target.value);    
+        const newName = e.target.value
+        setName(newName);
     };
 
     const handleChangeTel = e => {
-        setNumber(e.target.value);
+        const newNum = e.target.value
+        setNumber(newNum);
     };
      
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         
         const data = ({ id: nanoid(6), name: name, number: number });
         onAdd(data)
         formReset();
     }
 
-// helper function to reset form    
+ 
+// helper functions  
     const formReset = () => {
         setName('');
         setNumber('')
@@ -73,7 +78,7 @@ export const ContactForm = ({ onAdd }) => {
                 </label>
                 <label id="tel">
                     <StyledInput
-                        type="tel"
+                        type="number"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

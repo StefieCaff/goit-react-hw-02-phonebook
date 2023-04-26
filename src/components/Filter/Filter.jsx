@@ -19,8 +19,6 @@ const Filter = (props) => {
                 value={value}
                 placeholder="search by name"
                 onChange={onFilter}
-            
-
             />
         </StyledFlexColumn>
     );

@@ -14,6 +14,9 @@ import {
   StyledSection
 } from "./styled-common.js";
 
+/*App*/
+
+
 export const App = () => {
 // define states add local storage hook to save contacts to local environment
   const [contacts, setContacts] = useLocalStorage('contacts', []);
@@ -36,19 +39,27 @@ export const App = () => {
 
 // normalize filter and look for matching name in contacts  
   const searchContact = () => {
-    const normalizeFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizeFilter)
-    );
-  };
+    const normalizedFilter = filter.toLowerCase();
 
-// look through contacts by id and delete  
+    const search = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+
+    if (search.length === 0) {
+      Notify.info("Eeep, sorry, that search is not found");
+    };
+
+    return search;
+  };
+    
+// look through contacts by id and deletes 
   const handleRemove = (id) => {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== id)
     )
     Notify.success('Success! Contact deleted.')
   };
+
 /*markup*/
   return (
     <>

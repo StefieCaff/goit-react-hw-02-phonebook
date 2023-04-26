@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-   display: flex;
-   flex-direction: row;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    
 `;
 
 const StyledInput = styled.input`
@@ -12,9 +13,9 @@ const StyledInput = styled.input`
     border-left: none;
     border-right: .1px solid #f8e396;
     border-bottom: .5px solid #f8e396 ;
-    margin: 0 10px 10px;
+    margin: 0 9px 10px;
     border-radius: 10px;
-    padding: 13px 15px 3px 10px;
+    padding: 10px 15px 10px 10px;
     color: #54543dc5;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
     min-width: 180px;
