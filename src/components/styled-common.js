@@ -4,7 +4,7 @@ const StyledFlexColumn = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #fffefa;
-    padding: 20px 0;
+    padding: 20px 10px;
     border-radius: 1px;
     border: .5px solid #C5A120;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, 
@@ -18,12 +18,14 @@ const StyledFlexColumn = styled.div`
 const StyledHeader = styled.h1`
     margin-top: 20px;
     font-size: 24px;
+    padding-left: 10px;
 `;
 
 const StyledTitle = styled.h3`
     font-size: 16px;
-    margin: 0px 10px 20px 10px;
+    margin: 0px 0px 20px 0px;
     border-bottom: 1px solid #C5A120;
+    padding-left: 10px;
 `;
 
 const StyledFlex = styled.div`

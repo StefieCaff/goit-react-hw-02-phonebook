@@ -44,15 +44,15 @@ export const App = () => {
     const search = contacts.filter(contact =>
       contact.name.toLowerCase().includes(normalizedFilter)
     );
-
-    if (search.length === 0) {
+    
+    if (normalizedFilter !== "" && search.length === 0) {
       Notify.info("Eeep, sorry, that search is not found");
     };
 
     return search;
   };
     
-// look through contacts by id and deletes 
+// look through contacts by id and deletes it
   const handleRemove = (id) => {
     setContacts(prevContacts =>
       prevContacts.filter(contact => contact.id !== id)
@@ -72,23 +72,26 @@ export const App = () => {
           <ContactForm onAdd={handleAddContact} />
         </StyledContainer>
       </StyledSection>
-      <StyledSection>
-        <StyledContainer>
-      <Filter
-        value={filter}
-        onFilter ={handleFilterInput}
-          />
-        </StyledContainer>
-      </StyledSection>
-      <StyledSection>
-        <StyledContainer>
-      <ContactList
-        contacts={searchContact()}
-        onRemove ={handleRemove}
-        />
-        </StyledContainer>
-      </StyledSection>
-      
+      {contacts.length > 0 && (
+      <>
+        <StyledSection>
+          <StyledContainer>
+            <Filter
+              value={filter}
+              onFilter ={handleFilterInput}
+            />
+          </StyledContainer>
+        </StyledSection>
+        <StyledSection>
+          <StyledContainer>
+            <ContactList
+              contacts={searchContact()}
+              onRemove ={handleRemove}
+            />
+          </StyledContainer>
+        </StyledSection>
+        </>
+      )}
     </>
   );
 };

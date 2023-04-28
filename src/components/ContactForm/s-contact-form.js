@@ -13,12 +13,11 @@ const StyledInput = styled.input`
     border-left: none;
     border-right: .1px solid #f8e396;
     border-bottom: .5px solid #f8e396 ;
-    margin: 0 8px 10px;
     border-radius: 10px;
     padding: 10px 15px 10px 10px;
     color: #54543dc5;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
-    min-width: 180px;
+    width: 175px;
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #54543dc5;
@@ -30,7 +29,9 @@ const StyledInput = styled.input`
     ::-ms-input-placeholder { /* Microsoft Edge */
         color: #54543dc5;
     }
-    
+    &:first-child {
+        margin-bottom: 10px;
+    }
 `;
 
 export { StyledForm, StyledInput };

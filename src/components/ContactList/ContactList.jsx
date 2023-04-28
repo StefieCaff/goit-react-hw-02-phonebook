@@ -12,7 +12,8 @@ import {
     StyledList,
     StyledItem,
     StyledInfo,
-    StyledCallto
+    StyledCallto,
+    StyledName
 } from './s-contact-list.js';
 
 
@@ -47,7 +48,7 @@ export const ContactList = (props) => {
                                     />
                                 </StyledButton>
                                 <StyledInfo>
-                                    <p>{name}</p>
+                                    <StyledName>{name}</StyledName>
                                     <StyledCallto phone={number}>{number}</StyledCallto>
                                 </StyledInfo>
                                 
