@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { nanoid } from 'nanoid';
-import { Notify } from 'notiflix';
+
 
 /* styled components*/
 import { SVG } from 'components/Icons/Icons'; 
@@ -55,8 +55,8 @@ export const ContactForm = ({ onAdd }) => {
                     onClick={(e) => {handleSubmit(e)}}
                 >
                     <SVG
-                        width="20"
-                        height="20"
+                        width="25"
+                        height="25"
                         name="add"
                     />
                     </StyledButton>

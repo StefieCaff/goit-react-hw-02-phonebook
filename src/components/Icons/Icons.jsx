@@ -5,9 +5,9 @@ import { StyledSVG } from './s-icons-styled';
 
 export const SVG = (props) => {
 const {
-    width = "25",
-    height = "25",
-    name = "name"
+    width,
+    height,
+    name
 } = props
         
     return (
@@ -18,6 +18,12 @@ const {
         </StyledFlex>
     )
 };
+
+SVG.defaultProps = {
+    width: "25",
+    height: "25",
+    name: "add"
+}
 
 SVG.propTypes = {
     width: PropTypes.string,

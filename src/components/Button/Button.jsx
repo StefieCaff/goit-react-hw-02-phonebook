@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
+import {string} from 'prop-types'
 
-import { StyledButton } from './s-button';
+
 import { SVG } from 'components/Icons/Icons';
 
 
@@ -24,5 +24,15 @@ const Button = (props) => {
 
     );
 };
+
+Button.defaultProps = {
+    name: "add"
+}
+
+Button.propTypes = {
+    type: string.isRequired,
+    name: string
+};
+
 
 export { Button }
